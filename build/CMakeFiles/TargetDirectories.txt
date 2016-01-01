@@ -1,1 +1,0 @@
-/home/ganesh/Workspace/camera_calib/build/CMakeFiles/Camera_Calib.dir
