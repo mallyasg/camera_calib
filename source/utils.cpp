@@ -1,7 +1,8 @@
 #include "utils.hpp"
 
 void readCalibrationImages(std::string ymlFileName,
-			   std::vector<cv::Mat> &images) {
+			   std::vector<cv::Mat> &images,
+			   const int debug) {
   
   cv::FileStorage YMLFS(ymlFileName, cv::FileStorage::READ);
   std::vector<std::string> imageFileNames;
@@ -21,11 +22,11 @@ void readCalibrationImages(std::string ymlFileName,
     images.push_back(tempImage);
   }
   
-# ifdef DEBUG
-  for (unsigned int i = 0; i < images.size(); ++i) {
-    cv::namedWindow("Display Image", CV_WINDOW_AUTOSIZE);
-    cv::imshow("Display Image", images[i]);
-    cv::waitKey(0);
+  if (debug) {
+    for (unsigned int i = 0; i < images.size(); ++i) {
+      cv::namedWindow("Display Image", CV_WINDOW_AUTOSIZE);
+      cv::imshow("Display Image", images[i]);
+      cv::waitKey(0);
+    }
   }
-# endif
 }

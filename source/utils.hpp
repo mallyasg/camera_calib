@@ -4,7 +4,6 @@
 #include <string>
 #include <assert.h>
 
-//#define DEBUG
-
 void readCalibrationImages(std::string YMLFileName,
-			   std::vector<cv::Mat> &images);
+			   std::vector<cv::Mat> &images,
+			   const int debug);
